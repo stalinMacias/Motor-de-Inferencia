@@ -1,0 +1,4 @@
+1.- Leer el archivo txt donde se encuentran las reglas (BC), los Hechos Iniciales (BH) y la meta
+2.- Guardar en objetos la BC y la BH, un objeto por cada una...
+3.- Almacenar la meta y el metodo por el cual trabajará el motor de inferencia en la clase Sistema de Produccion!
+4.- 
