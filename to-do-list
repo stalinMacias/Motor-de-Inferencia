@@ -1,4 +1,9 @@
-1.- Leer el archivo txt donde se encuentran las reglas (BC), los Hechos Iniciales (BH) y la meta
-2.- Guardar en objetos la BC y la BH, un objeto por cada una...
-3.- Almacenar la meta y el metodo por el cual trabajará el motor de inferencia en la clase Sistema de Produccion!
-4.- 
+1.- Leer el archivo txt donde se encuentran las reglas (BC), los Hechos Iniciales (BH) y la meta                    [Listo]
+2.- Guardar en objetos la BC y la BH, un objeto por cada una...                                                     [Listo]
+3.- Almacenar la meta y el metodo por el cual trabajará el motor de inferencia en la clase Sistema de Produccion!   [Listo]
+
+4.- Programar el metodo equiparar para poder crear el Conjunto Conflicto (CC)
+    *Nota 1: Las reglas a evaluar se seleccionan en orden, de la primera a la ultima!
+    *Nota 2: El conjunto conflicto se conforma de aquellas reglas que pueden ser disparadas si su condición se cumple, en caso de ser disparada,
+           la acción de dicha regla se agrega a la Base de Hechos (BH), si dicha regla no puede ser disparada o ya se encuentra en el conjunto conflicto,
+           se selecciona la siguiente regla de la Base de Conocimientos (BC).

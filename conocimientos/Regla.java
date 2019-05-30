@@ -1,5 +1,6 @@
 package conocimientos;
 
+import hechos.*;
 
 public class Regla{
   private String condicion;
@@ -22,7 +23,7 @@ public class Regla{
     this.disparada = false;
     this.numeroRegla = ++cont;
   }
-  
+
   //Metodo toString para devolver la regla con la siguiente estructura:
   //Ejemplo
   //R1: A and C --> X
@@ -31,6 +32,35 @@ public class Regla{
     return "R"+getNumeroRegla()+": "+getCondicion()+" --> "+getAccion();
   }
 
+  public static boolean analizarRegla(String condicion){
+    java.util.Scanner s = new java.util.Scanner(condicion); //Meter en un Scanner el String de la condicion para poder manipularla!
+
+    boolean existeToken1 = BaseHechos.getInstance().getHecho(s.next()) == null ? false : true;
+
+    //Revisar si la condicion tiene mas hechos!
+    if(!s.hasNext()) return existeToken1;
+
+    String operador = s.next();
+
+    boolean existeToken2 = BaseHechos.getInstance().getHecho(s.next()) == null ? false : true;
+
+    //Determinar si se obtiene un true o false con cada 2 hechos y su respectivo operador!
+    boolean resultado = false;
+
+    switch(operador.toUpperCase()){
+      case "AND":
+        resultado = existeToken1 && existeToken2;
+        break;
+      case "OR":
+        resultado = existeToken1 || existeToken2;
+        break;
+    }
+
+    //Recursividad por si el la condicion tiene mas de 2 hechos
+    if(s.hasNext()) resultado = analizarRegla(resultado + " " + s.nextLine());  //Con s.nextLine() el Scanner continua analizando donde se quedo!
+
+    return resultado;
+  }//Cierre metodo analizarRegla
 
   public String getCondicion(){
     return this.condicion;
